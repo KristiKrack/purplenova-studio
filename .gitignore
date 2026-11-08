@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+/dist/.openai/
+/dist/server/
+/work/
+/outputs/
