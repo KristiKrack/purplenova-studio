@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PurpleNova Studio is a creative workspace for social images and 30-second videos.">
+<title>PurpleNova Studio — Social Content Studio</title>
+<link rel="stylesheet" href="style.css">
+<script src="studio.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav">
+<a class="brand" href="#home"><span class="mark" aria-hidden="true">✦</span><span>PurpleNova <span class="brand-light">Studio</span></span></a>
+<nav aria-label="Main navigation"><a href="#studio">Studio</a><a href="#formats">Formats</a><a href="#library">Library</a></nav>
+<div class="nav-actions"><button class="icon" id="theme" type="button" aria-label="Toggle color theme">☾</button><a class="btn primary mini" href="#studio">Open studio <span aria-hidden="true">↗</span></a></div>
+</div></header>
+<main id="main">
+<div id="home-view">
+<section class="hero wrap">
+<div class="hero-copy"><div class="eyebrow"><i></i> THE SOCIAL CONTENT STUDIO</div>
+<h1>Your ideas,<br><em>in motion.</em></h1>
+<p>Create polished social images and 30-second videos from the same creative brief. One workspace for your next campaign.</p>
+<div class="actions"><a class="btn primary" href="#studio">Start creating <span aria-hidden="true">↗</span></a><a class="btn quiet" href="#formats">Explore formats <span aria-hidden="true">↓</span></a></div>
+<div class="hero-note"><span>✦</span> 6 image formats <b>·</b> 30-second video exports</div>
+</div>
+<div class="showcase" aria-label="Examples of creative formats">
+<div class="stage-grid"></div>
+<div class="stage-label"><span class="pulse"></span> CREATIVE PREVIEW</div>
+<figure class="shot one"><img src="assets/instagram-post-Lu17_-YX.jpg" alt="Skincare bottle on a sunlit surface"><figcaption>01 / PRODUCT</figcaption></figure>
+<figure class="shot two"><img src="assets/instagram-reel-rthBN911.jpg" alt="Street style campaign portrait"><figcaption><span>▷</span> SOCIAL VIDEO <strong>00:30</strong></figcaption></figure>
+<figure class="shot three"><img src="assets/pinterest-pin-D-lB6ErE.jpg" alt="Sunlit interior with soft neutral finishes"><figcaption>03 / PINTEREST</figcaption></figure>
+<span class="flare" aria-hidden="true">✦</span>
+</div>
+</section>
+<section class="band" id="formats"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow"><i></i> THE FORMAT COLLECTION</div><h2>Designed for every feed.</h2></div><p>Start with a format. Make it yours in the studio.</p></div>
+<div id="format-grid" class="format-grid"></div>
+</div></section>
+<section class="wrap workflow"><div class="eyebrow"><i></i> HOW IT WORKS</div><h2>From brief to download.</h2><div class="steps"><article><b>01</b><h3>Write the brief</h3><p>Describe your content, add a headline, and choose a visual direction.</p></article><article><b>02</b><h3>Choose the output</h3><p>Keep the same brief and switch between a still image and a 30-second motion design.</p></article><article><b>03</b><h3>Preview and export</h3><p>Download your file or save the brief to reuse for a future post.</p></article></div><a class="btn primary" href="#studio">Open studio <span aria-hidden="true">↗</span></a></section>
+</div>
+<section class="wrap workspace" id="studio-view" hidden>
+<div class="section-head"><div><div class="eyebrow"><i></i> CREATIVE WORKSPACE</div><h1>Create content</h1><p>Build an image or a 30-second video with one brief.</p></div><a class="btn quiet" href="#library">View library ↗</a></div>
+<div class="work-grid">
+<form class="panel form-panel" id="brief">
+<fieldset><legend><b>01</b> Output</legend><div class="segmented"><label><input type="radio" name="mode" value="image" checked><span>▧ &nbsp; Image</span></label><label><input type="radio" name="mode" value="video"><span>▷ &nbsp; Animated Post · 30s</span></label><label><input type="radio" name="mode" value="ai-video" id="ai-video-mode" disabled><span>AI Video · 30s</span></label></div><label class="field">Format<select id="format" name="format"></select></label></fieldset>
+<fieldset><legend><b>02</b> Creative brief</legend><label class="field">Describe your content<textarea id="prompt" name="prompt" rows="4" maxlength="420" required placeholder="e.g. A calm product launch for a lavender body butter. Soft, elegant, and warm."></textarea></label><div class="sub-actions"><button id="suggest" class="text-btn" type="button">✦ Suggest a brief</button><span id="count">0 / 420</span></div>
+<label class="field">Headline <small>optional</small><input name="headline" id="headline" maxlength="70" placeholder="e.g. A softer kind of glow"></label>
+<div class="two-fields"><label class="field">Visual style<select id="style" name="style"><option value="editorial">Editorial</option><option value="minimal">Minimal</option><option value="bold">Bold</option></select></label><label class="field">Call to action <small>optional</small><input name="cta" id="cta" maxlength="36" placeholder="e.g. Shop now"></label></div>
+<label class="field"><input type="checkbox" id="ai-artwork" name="aiArtwork" disabled> Generate artwork with Cloudflare</label><p class="editor-note" id="provider-status">AI providers require server setup. Template exports are available in this browser.</p><label class="field upload">Reference image <small>optional</small><input id="reference" type="file" accept="image/png,image/jpeg,image/webp"><span>PNG, JPG, or WebP up to 10 MB</span></label><label class="field" for="reference-url">Or use a direct image URL <small>optional</small></label><div class="reference-url-row"><input type="url" inputmode="url" id="reference-url" placeholder="https://example.com/product.jpg" aria-describedby="reference-url-hint" maxlength="4096"><button class="btn quiet" id="use-reference-url" type="button" disabled>Use image URL</button></div><p class="editor-note" id="reference-url-hint">Use a public HTTPS link to a PNG, JPG, or WebP image up to 10 MB.</p><button type="button" id="remove-reference" class="text-btn" hidden>Remove reference image</button>
+</fieldset>
+<div class="form-actions"><button class="btn primary" id="generate" type="submit">Generate image</button><button class="btn quiet" id="save-brief" type="button">♡ Save brief</button><button class="btn quiet" id="generate-all" type="button">Export all images</button><button class="text-btn" id="cancel" type="button" hidden>Cancel</button></div>
+<p class="editor-note">Template exports render in your browser. For AI Video, generate Cloudflare artwork first, upload a starting image, or use an image URL. Runway creates three clips and charges per generation.</p>
+</form>
+<aside class="panel preview"><div class="preview-head"><div><div class="eyebrow"><i></i> OUTPUT</div><h2>Preview</h2></div><span class="tag" id="preview-format"></span></div>
+<div class="preview-box" id="preview-box"><div id="empty"><div class="preview-icon">✦</div><h3>Your content goes here</h3><p>Complete your brief and generate a preview.</p></div></div>
+<div class="progress" id="progress-box" hidden><progress id="progress" max="30" value="0"></progress><span id="progress-label"></span></div>
+<p id="status" role="status"></p><a class="btn primary" id="download" hidden>Download</a>
+</aside>
+</div>
+</section>
+<section class="wrap workspace" id="library-view" hidden>
+<div class="section-head"><div><div class="eyebrow"><i></i> YOUR WORK</div><h1>Creative library</h1><p>Saved briefs and exports are kept in this browser.</p></div><a class="btn primary" href="#studio">Open studio ↗</a></div>
+<div class="library-head"><h2>Saved briefs</h2></div><div class="library-grid" id="saved-list"></div><div class="library-head"><h2>Generation history</h2></div><div class="library-grid" id="history-list"></div>
+</section>
+</main>
+<footer><div class="wrap footer"><a class="brand" href="#home"><span class="mark" aria-hidden="true">✦</span><span>PurpleNova <span class="brand-light">Studio</span></span></a><p>A creative workspace for social content.</p><a href="#studio">Open studio ↗</a></div></footer>
+</body></html>
